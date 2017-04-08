@@ -1,34 +1,42 @@
 package com.example.dao;
 
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Component;
+
 import com.example.model.Person;
+import com.google.gson.Gson;
 
 /**
  * in the future implement with hibernate and Dao patron
  * @author rondeau
  *
  */
+
+@Component
 public class DaoPerson {
 
-	private Map<String,Person> persons;
+	private List<Person> persons;
 	
 	public DaoPerson(){
-		persons= new HashMap<String,Person>();
+		persons= new LinkedList<Person>();
 		
 		Person p1 = new Person("Eli","eli@gmail.com");
 		Person p2 = new Person("Matias","matu_dmr@hotmail.com");
 		Person p3 = new Person("Micho","micho@gmail.com");
 		Person p4 = new Person("Gordo","gordo@gmail.com");
 	
-		persons.put(p1.getId(), p1);
-		persons.put(p2.getId(), p2);
-		persons.put(p3.getId(), p3);
-		persons.put(p4.getId(), p4);
+		persons.add(p1);
+		persons.add(p2);
+		persons.add(p3);
+		persons.add(p4);
 	}
 	
-	public Map<String,Person> getAll (){
+	public List<Person> getAll (){
 		return this.persons;
+	
 	}
 }
